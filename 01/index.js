@@ -1,4 +1,4 @@
-"use strict"
+"use strict";
 
 //not strict moode.. --> legado
 //function newCode() {
@@ -58,3 +58,18 @@ console.log(b)
     //{ moo: "too" } //nao mudou pq tentamos subistituir b
     //{ moo: false}
     // { moo: "too", too: "moo", doo: "xii"}
+
+var c = 1;
+var d = {};
+
+function foo2(c, d) {
+    c = 2;
+    d.moo = 3;
+}
+
+foo2(c, d);
+console.log(c + JSON.stringify(d)); // 1 {'moo':3}
+
+var asimsVar = 3;
+asimVar = 1;
+console.log(asimVar);
