@@ -22,9 +22,33 @@ if (theval > 0) {
 
 //erro use strict nao permite excluir function
 
-var foo = 1;
+//var foo = 1;
 
-delete foo;
+//delete foo;
 
-function moo() {};
-delete moo;
+//function moo() {};
+//delete moo;
+
+var a;
+a = 1;
+//a = true
+
+function foo(a) {
+    a = 2;
+    //a = false
+
+};
+foo(a);
+console.log(a);
+//11
+//true
+
+var b = {};
+
+function foo1(b) {
+    b.moo = false
+};
+
+foo1(b);
+console.log(b)
+    //{ moo: false}
