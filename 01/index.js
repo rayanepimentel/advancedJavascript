@@ -43,12 +43,18 @@ console.log(a);
 //11
 //true
 
-var b = {};
+var b = {
+    "moo": "too"
+};
 
 function foo1(b) {
-    b.moo = false
+    //b = { "too": "moo" }
+    b.too = "moo";
+    b.doo = "xii";
 };
 
 foo1(b);
 console.log(b)
+    //{ moo: "too" } //nao mudou pq tentamos subistituir b
     //{ moo: false}
+    // { moo: "too", too: "moo", doo: "xii"}
