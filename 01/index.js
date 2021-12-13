@@ -1,4 +1,4 @@
-//"use strict"
+"use strict"
 
 //not strict moode.. --> legado
 //function newCode() {
@@ -10,9 +10,10 @@
 asim = 1;
 console.log(window.asim);
 
-var theval = 0;
+let theval = 0;
 
 thval = 1
+    //theval = 1 
 
 if (theval > 0) {
     console.log("hihiihih");
