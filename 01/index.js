@@ -17,4 +17,14 @@ theval = 1
 
 if (theval > 0) {
     console.log("hihiihih");
-}
+};
+
+
+//erro use strict nao permite excluir function
+
+var foo = 1;
+
+delete foo;
+
+function moo() {};
+delete moo;
