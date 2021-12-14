@@ -142,3 +142,23 @@ login2('msn2', 0, 3, 6, 9);
 /*
 function(mth, ...options, moo)
 */
+
+var arg1 = ['t', 1, 2];
+var arg2 = [4, 6, ...arg1];
+var arg3 = [3, 5, ...arg1, 20, 30];
+console.log(`
+${arg1}
+${arg2}
+${arg3}`);
+
+var metho = 'twitter';
+var opts = ['key, callbackUrl'];
+
+function acLogin(method, ...options) {
+    console.log(method);
+    console.log(options)
+};
+
+acLogin(metho, opts) // Array [(1) [...]], uma array com outra array
+acLogin(metho, 'key, callbackUrl') //Array [ 'key, callbackUrl' ]
+acLogin(metho, ...opts) //Array [ 'key, callbackUrl' ]
