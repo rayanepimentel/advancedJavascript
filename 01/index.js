@@ -162,3 +162,18 @@ function acLogin(method, ...options) {
 acLogin(metho, opts) // Array [(1) [...]], uma array com outra array
 acLogin(metho, 'key, callbackUrl') //Array [ 'key, callbackUrl' ]
 acLogin(metho, ...opts) //Array [ 'key, callbackUrl' ]
+
+
+
+//10 - strings
+
+function h1(str) {
+    return "<h1>" + str[0] + "</h1>";
+};
+
+console.log(h1 `hello`);
+
+function foos(strings) {
+    console.log(strings[0])
+};
+foos `moo${foo}fooii${foo}`
