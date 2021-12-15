@@ -177,3 +177,122 @@ function foos(strings) {
     console.log(strings[0])
 };
 foos `moo${foo}fooii${foo}`
+
+console.log(undefined == null);
+console.log(typeof(NaN));
+console.log(NaN == '1');
+
+//scope and variables
+
+{
+    let a13 = 13;
+    const b13 = 13;
+    var c13 = 13; {
+        console.log(a13);
+        console.log(b13);
+        console.log(c13);
+    };
+};
+
+//console.log('let ' + a13); //fora do escopo, error
+//console.log('const ' + b13); //fora do escopo, error
+console.log('var ' + c13); // variável global, sem error
+
+//scope chain
+
+function chain() {
+    //console.log(myvar); //nao t;a disponivel pq nao foi declada antes da chain()
+}
+
+var myvar2 = 'chain2'
+
+function goo() {
+    var myvar = 'chain1';
+
+    function chain() {
+        console.log(myvar);
+        console.log(myvar2);
+    }
+    chain();
+}
+
+goo();
+
+//fun closures
+
+function sayHello(name) {
+    var text = `Hello ${name}`;
+    return function() {
+        console.log(text)
+    };
+};
+
+var says = sayHello("oi")
+console.log(says)
+says();
+
+var fx = [];
+for (var i = 0; i < 10; i++) {
+    fx[i] = function() {
+        console.log(i);
+        return i;
+    };
+};
+
+console.log(fx[0]()); //10
+console.log(fx[1]()); //10
+console.log(fx[2]()); //10
+
+var fy = [];
+for (var i = 0; i < 10; i++) {
+    (function() {
+        var y = i;
+        // console.log(i);
+        fy[i] = function() {
+            return y;
+        }
+    })();
+};
+console.log("fy");
+console.log(fy[0]()); //0
+console.log(fy[1]()); //1
+console.log(fy[2]()); //2
+
+var fz = [];
+for (var i = 0; i < 10; i++) {
+    (function(y) {
+        fz[i] = function() {
+            return y;
+        }
+    })(i);
+};
+console.log("fz");
+console.log(fz[0]()); //0
+console.log(fz[1]()); //1
+console.log(fz[2]()); //2
+
+(function() {
+    var a = 3;
+})();
+console.log("a defined? " + (typeof a !== 'undefined'));
+
+console.log((function f(n) { return ((n > 1) ? n * f(n - 1) : n) })(4));
+(function(x) {
+    return (function(y) {
+        console.log(x);
+    })(2)
+})(1);
+
+
+
+var salary = "1000$";
+(function() {
+    console.log("Original salary was " + salary);
+    var salary = "5000$";
+    console.log("My New Salary " + salary);
+})();
+
+function seila() {
+    console.log(salary)
+}
+seila();
