@@ -296,3 +296,103 @@ function seila() {
     console.log(salary)
 }
 seila();
+
+//destructuring and looping
+
+const obj = {
+    color: 'violet',
+    day: 6,
+    temp: 'sun',
+    app: 'ts'
+};
+const { color: cl, day: dy } = obj;
+const { temp, app } = obj
+console.log(cl);
+
+console.log(dy);
+console.log(temp, app);
+
+const arrr = ['a', 'b'];
+const [ar, br] = arrr;
+
+console.log(ar);
+console.log(br);
+
+function ff(options) {
+    console.log(options.xj);
+};
+ff({ xj: 1 }); //1
+
+function fi({
+    xl: mxl
+}) {
+    console.log(mxl);
+};
+fi({ xl: 1 }); //1
+
+function ffx(x) {
+    console.log(x);
+};
+ffx({ xjx: 1 }); //1
+
+function xf({ x = 0 }) {
+    console.log(x);
+};
+xf({}); //0
+
+function xfv({ x = 0 }) {
+    console.log(x);
+};
+xfv({ x: 4 }); //4
+
+
+let numArr = [1, 2, 3];
+
+for (let i = 0; i < numArr.length; i++) {
+    console.log(numArr[i]);
+    //break;
+    //continue;
+}
+
+numArr.forEach(function(value) {
+    //break; nao tem
+    //continue; nao tem
+    console.log('hi ' + value);
+});
+
+function doSomething() {
+    numArr.forEach(function(v) {
+        console.log(v);
+        return;
+    });
+};
+
+doSomething();
+
+var objs = {
+    a: 1,
+    b: 3
+};
+
+for (let prop in objs) {
+    console.log(prop);
+};
+
+var arrayNum = [10, 20, 30];
+for (let prop in arrayNum) {
+    console.log(prop); //0, 1, 2 ??
+    console.log(typeof(prop)); //string?
+};
+
+for (let prop of arrayNum) {
+    console.log(prop); //10, 20, 30
+    //continue; //ok
+    console.log(typeof(prop)); //number
+    //break; //ok
+};
+
+var axx = [1, 2, 3]
+axx.forEach(function(v) {
+    if (v === 2) continue;
+    console.log(v)
+})
