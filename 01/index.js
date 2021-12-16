@@ -393,6 +393,6 @@ for (let prop of arrayNum) {
 
 var axx = [1, 2, 3]
 axx.forEach(function(v) {
-    if (v === 2) continue;
-    console.log(v)
+    if (v === 2) //continue;
+        console.log(v)
 })
