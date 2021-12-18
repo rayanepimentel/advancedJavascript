@@ -13,7 +13,8 @@
 
 // checkThis();
 
-"use strict";
+//"use strict";
+
 
 var sun = {
     checkThis: function() {
@@ -23,7 +24,7 @@ var sun = {
 
 //sun.checkThis();
 //console.log(sun);
-
+//In use strict mode the default value of this is undefined
 
 
 var sun1 = {
@@ -43,7 +44,7 @@ var sun1 = {
 
 // sun1.checkThis1();
 // console.log(sun1);
-
+//this in this situation points to the animal object itself
 
 function v1() {
     console.log(this);
@@ -117,15 +118,15 @@ xuxu1 = xuxu1.bind(1);
 
 //func anomimas
 setTimeout(function() {
-    console.log("Setimout called!");
+    //console.log("Setimout called!");
 }, 1000);
 
 setTimeout(() => {
-    console.log("Setimout called 2!");
+    //console.log("Setimout called 2!");
 }, 1000);
 
 let cb = () => {
-    console.log("Setimout called 3!");
+    //console.log("Setimout called 3!");
 };
 
 setTimeout(cb, 1000);
@@ -134,10 +135,10 @@ let add = function(a, b) {
     return a + b;
 };
 
-console.log(add(1, 2));
+//console.log(add(1, 2));
 
 let add1 = (a, b) => a + b;
-console.log(add1(2, 3));
+//console.log(add1(2, 3));
 
 let obj = {
     name: "Carl",
@@ -152,7 +153,7 @@ let obj1 = {
     name: "Carl",
     sayLater: function() {
         setTimeout(function() {
-            console.log(`${this.name}`);
+            //console.log(`${this.name}`);
         }, 1000);
     }
 };
@@ -163,9 +164,40 @@ let obj2 = {
     name: "Carl",
     sayLater: function() {
         setTimeout(() => {
-            console.log(`${this.name}`);
+            //console.log(`${this.name}`);
         }, 1000);
     }
 };
 
 obj2.sayLater(); // Carl
+
+
+//Object Orientation
+
+var animal = {
+    kind: 'human'
+};
+
+console.log(animal);
+
+var sol = {};
+
+sol.__proto__ = animal;
+
+console.log(sol.kind);
+
+console.log(animal.isPrototypeOf(sol));
+
+//animal.kind = 'estrela';
+//console.log(sol.kind);
+//console.log(animal.kind);
+
+var lua = Object.create(animal, {
+    food: {
+        value: 'mango'
+    }
+});
+
+console.log(lua);
+
+console.log(lua.kind, lua.food);
