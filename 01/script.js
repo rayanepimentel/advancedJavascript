@@ -210,7 +210,7 @@ function Person(fname, lname) {
 
 
 Person.prototype.full_name = function() {
-    return `${this.fname} ${lname}`;
+    return `${this.fname} ${this.lname}`;
 };
 
 function Professional(honorific, fname, lname) {
@@ -225,6 +225,8 @@ function Prof(honorific, fname, lname) {
     this.honorific = honorific;
 };
 
+Prof.prototype = Object.create(Person.prototype);
+
 Prof.prototype.pname = function() {
     return `${this.honorific} ${this.fname} ${this.lname}`;
 };
@@ -232,4 +234,5 @@ Prof.prototype.pname = function() {
 var prof = new Prof('deva', "Maria", "John");
 console.log(prof);
 console.log(prof.pname());
-console.log(prof.full_name()); //erro não tem herança Person full_name
+//console.log(prof.full_name()); //erro não tem herança Person full_name
+console.log(prof.full_name());
