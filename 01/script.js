@@ -13,7 +13,7 @@
 
 // checkThis();
 
-//"use strict";
+"use strict";
 
 
 var sun = {
@@ -178,15 +178,15 @@ var animal = {
     kind: 'human'
 };
 
-console.log(animal);
+//console.log(animal);
 
 var sol = {};
 
 sol.__proto__ = animal;
 
-console.log(sol.kind);
+//console.log(sol.kind);
 
-console.log(animal.isPrototypeOf(sol));
+//console.log(animal.isPrototypeOf(sol));
 
 //animal.kind = 'estrela';
 //console.log(sol.kind);
@@ -198,6 +198,31 @@ var lua = Object.create(animal, {
     }
 });
 
-console.log(lua);
+//console.log(lua);
 
-console.log(lua.kind, lua.food);
+//console.log(lua.kind, lua.food);
+
+
+function Person(fname, lname) {
+    this.fname = fname;
+    this.lname = lname;
+    this.full_name = function() {
+        return `${this.fname} ${lname}`;
+    }
+};
+
+
+Person.prototype.full_name = function() {
+    return `${this.fname} ${lname}`;
+};
+
+//var namefl = Person("xuxu", "ax"); //erro
+var namefl = new Person("lua", "luna");
+console.log(namefl);
+
+
+//var name = {};
+//Person.call(namefl, "xx", "lll");
+//console.log(namefl);
+namefl.fname = "sss"
+console.log(namefl.full_name());
