@@ -206,9 +206,6 @@ var lua = Object.create(animal, {
 function Person(fname, lname) {
     this.fname = fname;
     this.lname = lname;
-    this.full_name = function() {
-        return `${this.fname} ${lname}`;
-    }
 };
 
 
@@ -216,13 +213,23 @@ Person.prototype.full_name = function() {
     return `${this.fname} ${lname}`;
 };
 
-//var namefl = Person("xuxu", "ax"); //erro
-var namefl = new Person("lua", "luna");
-console.log(namefl);
+function Professional(honorific, fname, lname) {
+    this.fname = fname;
+    this.lname = lname;
+    this.honorific = honorific;
+};
 
 
-//var name = {};
-//Person.call(namefl, "xx", "lll");
-//console.log(namefl);
-namefl.fname = "sss"
-console.log(namefl.full_name());
+function Prof(honorific, fname, lname) {
+    Person.call(this, fname, lname);
+    this.honorific = honorific;
+};
+
+Prof.prototype.pname = function() {
+    return `${this.honorific} ${this.fname} ${this.lname}`;
+};
+
+var prof = new Prof('deva', "Maria", "John");
+console.log(prof);
+console.log(prof.pname());
+console.log(prof.full_name()); //erro não tem herança Person full_name
