@@ -203,36 +203,58 @@ var lua = Object.create(animal, {
 //console.log(lua.kind, lua.food);
 
 
-function Person(fname, lname) {
-    this.fname = fname;
-    this.lname = lname;
-};
+// function Person(fname, lname) {
+//     this.fname = fname;
+//     this.lname = lname;
+// };
 
 
-Person.prototype.full_name = function() {
-    return `${this.fname} ${this.lname}`;
-};
+// Person.prototype.full_name = function() {
+//     return `${this.fname} ${this.lname}`;
+// };
 
-function Professional(honorific, fname, lname) {
-    this.fname = fname;
-    this.lname = lname;
-    this.honorific = honorific;
-};
+// function Professional(honorific, fname, lname) {
+//     this.fname = fname;
+//     this.lname = lname;
+//     this.honorific = honorific;
+// };
 
 
-function Prof(honorific, fname, lname) {
-    Person.call(this, fname, lname);
-    this.honorific = honorific;
-};
+// function Prof(honorific, fname, lname) {
+//     Person.call(this, fname, lname);
+//     this.honorific = honorific;
+// };
 
-Prof.prototype = Object.create(Person.prototype);
+//Prof.prototype = Object.create(Person.prototype);
 
-Prof.prototype.pname = function() {
-    return `${this.honorific} ${this.fname} ${this.lname}`;
-};
+// Prof.prototype.pname = function() {
+//     return `${this.honorific} ${this.fname} ${this.lname}`;
+// };
 
-var prof = new Prof('deva', "Maria", "John");
-console.log(prof);
-console.log(prof.pname());
+//var prof = new Prof('deva', "Maria", "John");
+//console.log(prof);
+//console.log(prof.pname());
 //console.log(prof.full_name()); //erro não tem herança Person full_name
-console.log(prof.full_name());
+//console.log(prof.full_name());
+
+
+
+//class
+
+class Person {
+    _firtsName = "";
+    _lastName = "";
+
+    constructor(firstName, lastName) {
+        this._firtsName = firstName;
+        this._lastName = lastName
+    }
+
+    fullName() {
+        return `${this._firtsName} ${this._lastName}`;
+    }
+}
+
+
+let namx = new Person("Alex", "Sam");
+console.log(namx.fullName());
