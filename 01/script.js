@@ -250,11 +250,31 @@ class Person {
         this._lastName = lastName
     }
 
-    fullName() {
-        return `${this._firtsName} ${this._lastName}`;
+    get firstName() {
+        return this._firtsName;
     }
+
+    set firstName(name) {
+        if (name === "") {
+            console.error("firstName cannot be blank");
+        } else {
+            this._firtsName = name;
+        }
+    }
+
+    fullName() {
+        return `${this.firstName} ${this._lastName}`;
+    }
+
+    whoAreYou() {
+        return `Hi I'm ${this.fullName()}`;
+    }
+
 }
 
 
 let namx = new Person("Alex", "Sam");
 console.log(namx.fullName());
+console.log(namx.firstName = "");
+console.log(namx.firstName = "Coven");
+console.log(namx.whoAreYou());
