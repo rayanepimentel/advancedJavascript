@@ -272,9 +272,24 @@ class Person {
 
 }
 
+class Student extends Person {
 
-let namx = new Person("Alex", "Sam");
-console.log(namx.fullName());
-console.log(namx.firstName = "");
-console.log(namx.firstName = "Coven");
-console.log(namx.whoAreYou());
+    constructor(firstName, lastName, course) {
+        super(firstName, lastName);
+        this.course = course
+    }
+
+    whoAreYou() {
+        return `${super.whoAreYou()} and I'm studying ${this.course}`
+    }
+}
+
+
+//let namx = new Person("Alex", "Sam");
+// console.log(namx.fullName());
+// console.log(namx.firstName = "");
+// console.log(namx.firstName = "Coven");
+// console.log(namx.whoAreYou());
+
+let nam = new Student("Olivia", "Benson", "ADS");
+console.log(nam.whoAreYou());
