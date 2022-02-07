@@ -292,4 +292,13 @@ class Student extends Person {
 // console.log(namx.whoAreYou());
 
 let nam = new Student("Olivia", "Benson", "ADS");
-console.log(nam.whoAreYou());
+//console.log(nam.whoAreYou());
+
+//callback
+
+function taks(cb) {
+    cb()
+}
+
+taks(() => console.log(message)); //erro
+let message = "Callback";
