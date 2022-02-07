@@ -297,8 +297,15 @@ let nam = new Student("Olivia", "Benson", "ADS");
 //callback
 
 function taks(cb) {
-    setTimeout(cb, 0)
+    setTimeout(() => {
+        cb(null, "data correta");
+    }, 0)
 }
 
-taks(() => console.log(message)); //erro
-let message = "Callback";
+taks((err, data) => {
+    if (err) {
+        throw err
+    } else {
+        console.log("data", data);
+    }
+})
